@@ -1,0 +1,105 @@
+[
+    {
+        "name" : "Roadster Men Blue Solid Round Neck T-shirt",
+        "price" : "250",
+        "description" : "blue solid T-shirt, has a round neck, and short sleeves",
+        "ratings" : 4.5,
+        "images" : [{
+            "public_id" : "products/ardsgasdfdsgfsdgag",
+            "url" : "https://products/ardsgasdfdsgfsdgag"
+        }],
+        "category" : "MenClothing",
+        "brand" : "Roadster",
+        "size" : "M",
+        "color" : "blue",
+        "stock" : 5,
+        "numOfReviews" : 0,
+        "reviews": []
+    },
+    {
+        "name" : "Jockey Men Red Solid Round Neck T-shirt",
+        "price" : "400",
+        "description" : "blue solid T-shirt, has a round neck, and short sleeves",
+        "ratings" : 4.0,
+        "images" : [{
+            "public_id" : "products/ardsgasdfdsfedsgfsdgag",
+            "url" : "https://products/ardsgadsfse3sdfdsgfsdgag"
+        }],
+        "category" : "MenClothing",
+        "brand" : "Jockey",
+        "size" : "XL",
+        "color" : "red",
+        "stock" : 10,
+        "numOfReviews" : 0,
+        "reviews": []
+    },
+    {
+        "name" : "Women Red Embroidered Straight Kurta",
+        "price" : "599",
+        "description" : "Red embroidered straight kurta, has a round neck, three-quarter sleeves, straight hem, and side slits",
+        "ratings" : 4.0,
+        "images" : [{
+            "public_id" : "products/hgfkjgsdfr4s",
+            "url" : "https://products/hgfkjgsdfr4s"
+        }],
+        "category" : "WomenClothing",
+        "brand" : "Libas",
+        "size" : "L",
+        "color" : "red",
+        "stock" : 13,
+        "numOfReviews" : 0,
+        "reviews": []
+    },
+    {
+        "name" : "Women Blue Embroidered Straight Kurta",
+        "price" : "599",
+        "description" : "Red embroidered straight kurta, has a round neck, three-quarter sleeves, straight hem, and side slits",
+        "ratings" : 4.0,
+        "images" : [{
+            "public_id" : "products/hgfkjgsdfr4s",
+            "url" : "https://products/hgfkjgsdfr4s"
+        }],
+        "category" : "WomenClothing",
+        "brand" : "Libas",
+        "size" : "M",
+        "color" : "blue",
+        "stock" : 18,
+        "numOfReviews" : 0,
+        "reviews": []
+    },
+    {
+        "name" : "Girls Blue & White Ethnic Motifs Print Pure Cotton Ready to Wear Lehenga Choli",
+        "price" : "899",
+        "description" : "Blue and white printed lehenga choli with dupatta Blue and white ethnic motifs print ready to wear blouse with gathers, has a round neck, three-quarter sleeves Blue and white paisley printready to wear lehenga, has an elasticated waistband with slip-on closure, flared hem ,Blue solid dupatta, has a taping border",
+        "ratings" : 4.0,
+        "images" : [{
+            "public_id" : "products/asfhjjkkks",
+            "url" : "https://products/asfhjjkkks"
+        }],
+        "category" : "KidsClothing",
+        "brand" : "Sangria",
+        "size" : "3-4Y",
+        "color" : "blue",
+        "stock" : 3,
+        "numOfReviews" : 0,
+        "reviews": []
+    },
+    {
+        "name" : "Women Textured Shoulder Strap Purse",
+        "price" : "299",
+        "description" : "Gold-toned textured purse ,1 main compartment, has a button closure, na external pockets, Tablet sleeve: no ,With a non-detachable sling strap",
+        "ratings" : 4.0,
+        "images" : [{
+            "public_id" : "products/asfhjjkkks",
+            "url" : "https://products/asfhjjkkks"
+        }],
+        "category" : "Accessories",
+        "brand" : "Sangria",
+        "size" : "OneSize",
+        "color" : "gold",
+        "stock" : 4,
+        "numOfReviews" : 0,
+        "reviews": []
+    }
+
+]
