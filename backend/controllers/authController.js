@@ -5,19 +5,27 @@ const catchAsyncErrors =require('../middlewares/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 
-const crypto = require('crypto')
+const crypto = require('crypto');
+const cloudinary =require('cloudinary');
+
 
 // Register a user  => /api/v1/register
 exports.registerUser = catchAsyncErrors( async(req, res, next) =>{
-    const{ name, email,password} = req.body;
 
+    const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder:'avatars',
+        width:150,
+        crop:"scale"
+    })
+    const{ name, email,password} = req.body;
+   
     const user = await User.create({
         name,
         email,
         password,
         avtar:{
-            public_id: 'avtars/kcc',
-            url:'https://abc.png'
+            public_id: result.public_id,
+            url: result.secure_url
         }
     })
     sendToken(user, 200, res)
@@ -25,6 +33,7 @@ exports.registerUser = catchAsyncErrors( async(req, res, next) =>{
 
 // Login user => /a[i/v1/login
 exports.loginUser = catchAsyncErrors (async (req, res, next) =>{
+    
     const { email, password} = req.body;
 
     //Checks if email and password is entered by user
@@ -63,7 +72,7 @@ exports.forgetPassword = catchAsyncErrors( async (req, res, next) =>{
     await user.save({ validateBeforeSave: false});
     
     //create reset password url
-    const resetUrl =`${req.protocol}://${req.get('host')}/api/v1/password/reset/${resetToken}`;
+    const resetUrl =`${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
     
     const message =`Your password reset token is as follow:\n\n${resetUrl}\n\nIf you have not requested this email,then ignore it.`
     
@@ -93,7 +102,6 @@ exports.forgetPassword = catchAsyncErrors( async (req, res, next) =>{
 
 // Reset Password   =>  /api/v1/password/reset/:token
 exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
-
     // Hash URL token
     const resetPasswordToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
 
@@ -154,7 +162,23 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
         email: req.body.email
     }
 
-    // Update avatar: TODO
+    // Update avatar
+    if(req.body.avatar !== ''){
+        const user = await User.findById(req.user.id)
+        const image_id = user.avtar.public_id;
+        const res =await cloudinary.v2.uploader.destroy(image_id);
+
+        const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+            folder:'avatars',
+            width:150,
+            crop:"scale"
+        })
+        newUserData.avtar ={
+            public_id:result.public_id,
+            url:result.secure_url
+        }
+    }
+
     
     const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new: true,

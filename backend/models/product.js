@@ -1,14 +1,5 @@
 const mongoose =require('mongoose')
 
-const validColors = [
-        "red", 
-        "blue", 
-        "green", 
-        "yellow", 
-        "black",
-        "white",
-        "gold"
-    ];
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -93,13 +84,7 @@ const productSchema = new mongoose.Schema({
     },
     color: { 
         type: String, 
-        required: true,
-        validate: {
-            validator: function(value) {
-                return validColors.includes(value);
-            },
-            message: props => `${props.value} is not a valid color!`
-        }
+        required: true
     },
     stock: {
         type: Number,
